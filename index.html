@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gimnasio - Seguimiento de Rutina</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Iconos de Lucide para una interfaz limpia -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- HEADER / Encabezado -->
+        <header class="main-header">
+            <div class="header-content">
+                <h1><i data-lucide="dumbbell"></i> Registro de Entrenamiento</h1>
+                <p>Planifica y registra tus series, pesos y repeticiones día a día.</p>
+            </div>
+            
+            <!-- Selector de Mes -->
+            <div class="month-selector-wrapper">
+                <label for="month-select"><i data-lucide="calendar"></i> Mes activo:</label>
+                <select id="month-select" class="month-select">
+                    <option value="0">Enero</option>
+                    <option value="1">Febrero</option>
+                    <option value="2">Marzo</option>
+                    <option value="3">Abril</option>
+                    <option value="4">Mayo</option>
+                    <option value="5">Junio</option>
+                    <option value="6">Julio</option>
+                    <option value="7">Agosto</option>
+                    <option value="8">Septiembre</option>
+                    <option value="9">Octubre</option>
+                    <option value="10">Noviembre</option>
+                    <option value="11">Diciembre</option>
+                </select>
+            </div>
+        </header>
+
+        <!-- DASHBOARD / Métricas -->
+        <div class="dashboard-grid">
+            <div class="stat-card">
+                <div class="stat-icon icon-blue"><i data-lucide="trending-up"></i></div>
+                <div class="stat-info">
+                    <span class="stat-label">Progreso del Mes</span>
+                    <span id="stat-progress-text" class="stat-value">0%</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon icon-green"><i data-lucide="check-circle-2"></i></div>
+                <div class="stat-info">
+                    <span class="stat-label">Series Completadas</span>
+                    <span id="stat-completed-sets" class="stat-value">0 / 0</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon icon-purple"><i data-lucide="weight"></i></div>
+                <div class="stat-info">
+                    <span class="stat-label">Volumen Total Levantado</span>
+                    <span id="stat-total-volume" class="stat-value">0 kg</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pestañas de Días -->
+        <nav class="days-nav" id="days-nav-tabs"></nav>
+
+        <!-- Contenido del Día Seleccionado -->
+        <main class="day-content" id="day-content-container">
+            <!-- Se genera dinámicamente con JS -->
+        </main>
+
+        <!-- Botones de Acción (Exportar, Importar, Reiniciar) -->
+        <footer class="app-actions">
+            <button id="btn-reset-month" class="btn btn-outline-danger">
+                <i data-lucide="rotate-ccw"></i> Reiniciar Mes Actual
+            </button>
+            <div class="actions-right">
+                <button id="btn-export" class="btn btn-outline">
+                    <i data-lucide="download"></i> Exportar Copia de Seguridad
+                </button>
+                <button id="btn-import-trigger" class="btn btn-outline">
+                    <i data-lucide="upload"></i> Importar Datos
+                </button>
+                <input type="file" id="import-file-input" accept=".json" style="display: none;">
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
